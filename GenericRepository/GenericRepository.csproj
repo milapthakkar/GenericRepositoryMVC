@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="IRepository.cs" />
+    <Compile Remove="Repository.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="EF.GenericRepository">
+      <HintPath>..\GenericRepositoryMVC\Bin\EF.GenericRepository.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
