@@ -3,7 +3,7 @@ Generic Repository Using Unit of work For MVC and Web API
 
 # How To Use
 
-public class DepartmentsController : Controller
+    public class DepartmentsController : Controller
     {
         private UnitOfWork _unitofwork = null;
 
