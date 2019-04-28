@@ -29,6 +29,9 @@ Generic Repository Using Unit of work For MVC and Web API
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            //var data = deptRepo.ExecWithStoreProcedure("usp_get_department").ToList();
+            //var data = deptRepo.ExecWithStoreProcedure("usp_get_department @p0", 1).ToList();
+            //Department department = _unitofwork.GetRepository<Department,int>().Get(x => x.DepartmentID == id);
             Department department = _unitofwork.GetRepository<Department>().Get(x => x.DepartmentID == id);
             if (department == null)
             {
