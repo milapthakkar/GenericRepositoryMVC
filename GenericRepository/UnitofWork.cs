@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GenericRepository;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -16,13 +17,24 @@ namespace OWS.GR
 
         public Dictionary<Type, object> repositories = new Dictionary<Type, object>();
 
-        public IGenericRepository<T> GetRepository<T>() where T : class
+        //public IGenericRepository<T> GetRepository<T>() where T : class
+        //{
+        //    if (repositories.Keys.Contains(typeof(T)) == true)
+        //    {
+        //        return repositories[typeof(T)] as IGenericRepository<T>;
+        //    }
+        //    IGenericRepository<T> repo = new GenericRepository<T>(_context);
+        //    repositories.Add(typeof(T), repo);
+        //    return repo;
+        //}
+
+        public IRepository<T,Tkey> GetRepository<T, Tkey>() where T : class
         {
             if (repositories.Keys.Contains(typeof(T)) == true)
             {
-                return repositories[typeof(T)] as IGenericRepository<T>;
+                return repositories[typeof(T)] as IRepository<T, Tkey>;
             }
-            IGenericRepository<T> repo = new GenericRepository<T>(_context);
+            IRepository<T, Tkey> repo = new Repository<T, Tkey>(_context);
             repositories.Add(typeof(T), repo);
             return repo;
         }
